@@ -1,0 +1,13 @@
+If: #life > 0 and &enemy_life > 0 > {
+    B:= 'Биться' >> {
+        >>> &Dice = []
+        Script:='Dice_16'>>>
+        If: &Dice[0] > &sep >>> {
+            >>>> #life = max(0, #life - 1)
+        }
+        Else>>> {
+            >>>> &enemy_life = max(0, &enemy_life - 1)
+        }
+        Script:= 'Fight_Internal' >>>
+    }
+}

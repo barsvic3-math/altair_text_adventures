@@ -1,0 +1,22 @@
+Loop> {
+    If: &luck_upgrade > 0 >> {
+        >>> &index_Degrade_Luck += 1
+        >>> &signal_Degrade_Luck += [True]
+    }
+    Else>> {
+        >>> &index_Degrade_Luck += 1
+        >>> &signal_Degrade_Luck += [False]
+    }
+    If: &signal_Degrade_Luck[&index_Degrade_Luck] >> {
+        B:= '-' >>> (indent = 7/24) {
+            >>>> &signal_Degrade_Luck += [False]
+            >>>> &index_Degrade_Luck += 1
+            Script:= 'Degrade_Luck' >>>>
+        }
+        { --imm
+            >>>> &luck_upgrade -= 1
+            >>>> &upgrades_count += 1
+            >>>> #luck_level += 1
+        }
+    }
+}

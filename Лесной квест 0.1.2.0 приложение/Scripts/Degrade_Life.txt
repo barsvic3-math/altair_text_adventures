@@ -1,0 +1,22 @@
+Loop> {
+    If: &life_upgrade > 0 >> {
+        >>> &index_Degrade_Life += 1
+        >>> &signal_Degrade_Life += [True]
+    }
+    Else>> {
+        >>> &index_Degrade_Life += 1
+        >>> &signal_Degrade_Life += [False]
+    }
+    If: &signal_Degrade_Life[&index_Degrade_Life] >> {
+        B:= '-' >>> (indent = 7/24) {
+            >>>> &signal_Degrade_Life += [False]
+            >>>> &index_Degrade_Life += 1
+            Script:= 'Degrade_Life' >>>>
+        }
+        { --imm
+            >>>> &life_upgrade -= 1
+            >>>> &upgrades_count += 1
+            >>>> #life_full -= 2
+        }
+    }
+}

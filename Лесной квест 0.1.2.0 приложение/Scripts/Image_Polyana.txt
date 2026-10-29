@@ -1,0 +1,2 @@
+> &image = 'Стартовая поляна.jpg'
+Script:= 'Image' >

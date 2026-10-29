@@ -1,0 +1,2 @@
+> &mean = R.randint(1,32)
+> &Dice.append(&mean)

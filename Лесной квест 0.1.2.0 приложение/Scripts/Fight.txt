@@ -1,0 +1,29 @@
+> &sep = 8 + #power - &enemy_power
+> &Dice = []
+
+Script:= 'Fight_Internal' >
+
+Значение не больше &sep для победы
+Loop> {
+    >> &Dice_str = str(&Dice)[1:-1]
+}
+Кубик: &Dice_str
+
+Loop> {
+    If: #life <= 0 >> {
+        Увы, Вы проиграли...
+    }
+    If: &enemy_life <= 0 >> {
+        Link>>> (indent=1/2) (&next_passage_name[0] -> &next_passage_name[1])
+    }
+}
+
+
+
+Вы:
+Здоровье: #life
+Сила: #power
+
+&enemy_name :
+Здоровье: &enemy_life
+Сила: &enemy_power

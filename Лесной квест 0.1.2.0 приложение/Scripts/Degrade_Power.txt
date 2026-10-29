@@ -1,0 +1,22 @@
+Loop> {
+    If: &power_upgrade > 0 >> {
+        >>> &index_Degrade_Power += 1
+        >>> &signal_Degrade_Power += [True]
+    }
+    Else>> {
+        >>> &index_Degrade_Power += 1
+        >>> &signal_Degrade_Power += [False]
+    }
+    If: &signal_Degrade_Power[&index_Degrade_Power] >> {
+        B:= '-' >>> (indent = 7/24) {
+            >>>> &signal_Degrade_Power += [False]
+            >>>> &index_Degrade_Power += 1
+            Script:= 'Degrade_Power' >>>>
+        }
+        { --imm
+            >>>> &power_upgrade -= 1
+            >>>> &upgrades_count += 1
+            >>>> #power -= 1
+        }
+    }
+}

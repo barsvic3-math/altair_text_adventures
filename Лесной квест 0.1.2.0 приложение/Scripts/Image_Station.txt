@@ -1,0 +1,2 @@
+> &image = 'Станция.jpg'
+Script:= 'Image' >

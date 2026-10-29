@@ -1,0 +1,4 @@
+Sp:= - #__indent_up >
+Img:= &image > (y = 0)
+Fig:= 'rectangle' > (coordinates = [3*#__indent_left//4, #__indent_up//2, #__canvas_width - 3*#__indent_right//4, #__canvas_height - #__indent_up//2], fill = '~fffacd', outline='~fffacd', width=1, y = #__indent_up, a=0.7)
+Script:= 'Important_Vars_Every_Passage' >

@@ -1,0 +1,16 @@
+> &luck_res = 0
+> &Dice = []
+For &index in (0,&luck_number_cubs) > {
+    Script:= 'Dice_16' >>
+    If: &Dice[-1] in &Dice[:-1] >> {
+        >>> &Dice = &Dice[:-1]
+    }
+    Else>> {
+        If: &Dice[-1] in #luck >>> {
+            >>>> &luck_res += 1
+        }
+        Else>>> {
+            >>>> #luck += &Dice[-1:]
+        }
+    }
+}

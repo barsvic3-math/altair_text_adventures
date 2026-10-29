@@ -1,0 +1,2 @@
+> #water -= 1
+> #life = min(#life + 2, #life_full)

@@ -1,0 +1,22 @@
+Loop> {
+    If: &upgrades_count > 0 >> {
+        >>> &index_Upgrade_Power += 1
+        >>> &signal_Upgrade_Power += [True]
+    }
+    Else>> {
+        >>> &index_Upgrade_Power += 1
+        >>> &signal_Upgrade_Power += [False]
+    }
+    If: &signal_Upgrade_Power[&index_Upgrade_Power] >> {
+        B:= '+' >>> (indent = 1/4) {
+            >>>> &signal_Upgrade_Power += [False]
+            >>>> &index_Upgrade_Power += 1
+            Script:= 'Upgrade_Power' >>>>
+        }
+        { --imm
+            >>>> &power_upgrade += 1
+            >>>> &upgrades_count -= 1
+            >>>> #power += 1
+        }
+    }
+}

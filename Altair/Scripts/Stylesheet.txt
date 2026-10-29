@@ -1,0 +1,37 @@
+> #__bg = '~fffacd'
+> #__bg_image = False
+
+> #__indent_up = 50
+> #__indent_left = 75
+> #__indent_right = 75
+
+> #__text_shift= 24
+> #__link_shift = 48
+> #__button_shift = 48
+
+> #__text_font = "Times New Roman"
+> #__text_size = 16
+> #__text_style = 'normal'
+> #__text_colour = '~570e0d'
+> #__text_length = 150
+
+> #__link_height = 1
+> #__link_bg = '~570e0d'
+> #__link_fg = '~fffacd'
+> #__link_activebackground = '~fffacd'
+> #__link_activeforeground = '~570e0d'
+> #__link_relief = 'raised'
+> #__link_text_font = "Times New Roman"
+> #__link_text_size = 18
+> #__link_text_style = 'normal'
+
+> #__button_height = 1
+> #__button_bg = '~570e0d'
+> #__button_fg = '~fffacd'
+> #__button_activebackground = '~fffacd'
+> #__button_activeforeground = '~570e0d'
+> #__button_relief = 'raised'
+> #__button_text_font = "Times New Roman"
+> #__button_text_size = 18
+> #__button_text_style = 'normal'
+

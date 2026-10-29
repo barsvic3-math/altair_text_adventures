@@ -1,0 +1,3 @@
+> &inventory_show = False
+> &main_buttons_show = True
+> &photo_made = False

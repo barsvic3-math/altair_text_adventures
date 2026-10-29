@@ -1,0 +1,62 @@
+Loop> {
+    >> &backpack_text = str(#backpack)[1:-1]
+    >> &photos_text = str(#photos)[1:-1]
+    >> &luck_text = str(#luck)[1:-1]
+    >> &marrons_text_R = #marrons['Красный']
+    >> &marrons_text_Y = #marrons['Желтый']
+    >> &marrons_text_W = #marrons['Белый']
+    >> &marrons_text_G = #marrons['Зеленый']
+    >> #__y = round(#__canvas_height * 0.7)
+}
+! (indent = 1/2, anchor = 'C') ! #splitter
+! (indent = 1/4) ! Жизнь: #life/#life_full
+! (indent = 1/4) ! Сила: #power
+! (indent = 1/4) ! Удача: &luck_text
+! (indent = 1/4) ! Вода: #water/#water_full
+Script:= 'Inventory_button' >
+Loop> {
+    If: &inventory_show >> {
+        >>> #__y = 0
+        Fig:= 'rectangle' >>> (coordinates = [0, 0, #__canvas_width, #__canvas_height], fill = '~fffacd', outline='~fffacd', width=1, y = #__indent_up, a=0.9)
+        ! (indent = 7/12) ! Каштаны:
+        ! (indent = 5/8) ! @ Красные: &marrons_text_R
+        ! (indent = 5/8) ! @ Желтые: &marrons_text_Y
+        ! (indent = 5/8) ! @ Белые: &marrons_text_W
+        ! (indent = 5/8) ! @ Зеленые: &marrons_text_G
+        ! (indent = 7/12) ! Рюкзак: &backpack_text
+        ! (indent = 7/12) ! Память: &photos_text
+        If: len(#photos) < #photos_max and not &photo_made >>> {
+            B:= 'Сделать фото' >>>> (indent = 1/4) {
+            }
+            { --imm
+                Script:= 'Make_photo' >>>>>
+            }
+            Sp:= - #__button_shift >>>>
+        }
+        If: #life < #life_full and #water > 0 >>> {
+            B:= 'Выпить воды' >>>>  (indent = 1/2) {
+            }
+            { --imm
+                Script:= 'Drink_water' >>>>>
+            }
+            Sp:= - #__button_shift >>>>
+        }
+        If: #life < #life_full and 'Яблоко' in #backpack >>> {
+            B:= 'Съесть яблоко' >>>>  (indent = 3/4) {
+            }
+            { --imm
+                Script:= 'Eat_apple' >>>>>
+            }
+            Sp:= - #__button_shift >>>>
+        }
+        Sp:= #__button_shift >>>
+        Script:= 'Inventory_button_close' >>>
+    }
+}
+Loop> {
+    If: &main_buttons_show >> {
+        B:= 'Назад' >>> {
+            Undo:= -2 >>>>
+        }
+    }
+}

@@ -1,0 +1,22 @@
+Loop> {
+    If: &upgrades_count > 0 >> {
+        >>> &index_Upgrade_Luck += 1
+        >>> &signal_Upgrade_Luck += [True]
+    }
+    Else>> {
+        >>> &index_Upgrade_Luck += 1
+        >>> &signal_Upgrade_Luck += [False]
+    }
+    If: &signal_Upgrade_Luck[&index_Upgrade_Luck] >> {
+        B:= '+' >>> (indent = 1/4) {
+            >>>> &signal_Upgrade_Luck += [False]
+            >>>> &index_Upgrade_Luck += 1
+            Script:= 'Upgrade_Luck' >>>>
+        }
+        { --imm
+            >>>> &luck_upgrade += 1
+            >>>> &upgrades_count -= 1
+            >>>> #luck_level -= 1
+        }
+    }
+}

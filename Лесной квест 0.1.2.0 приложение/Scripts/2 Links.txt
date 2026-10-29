@@ -1,0 +1,9 @@
+Loop> {
+    If: &main_buttons_show >> {
+        Sp:= 2*#__text_shift >>>
+        Link>>> (indent=&first[2]) (&first[0] -> &first[1])
+        Sp:= -#__link_shift >>>
+        Link>>> (indent=&second[2]) (&second[0] -> &second[1])
+        Sp:= 4*#__text_shift >>>
+    }
+}

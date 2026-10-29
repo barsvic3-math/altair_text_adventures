@@ -1,0 +1,2 @@
+> #life = min(#life + 3, #life_full)
+> #backpack.remove('Яблоко')

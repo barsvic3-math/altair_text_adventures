@@ -1,0 +1,22 @@
+Loop> {
+    If: &upgrades_count > 0 >> {
+        >>> &index_Upgrade_Life += 1
+        >>> &signal_Upgrade_Life += [True]
+    }
+    Else>> {
+        >>> &index_Upgrade_Life += 1
+        >>> &signal_Upgrade_Life += [False]
+    }
+    If: &signal_Upgrade_Life[&index_Upgrade_Life] >> {
+        B:= '+' >>> (indent = 1/4) {
+            >>>> &signal_Upgrade_Life += [False]
+            >>>> &index_Upgrade_Life += 1
+            Script:= 'Upgrade_Life' >>>>
+        }
+        { --imm
+            >>>> &life_upgrade += 1
+            >>>> &upgrades_count -= 1
+            >>>> #life_full += 2
+        }
+    }
+}

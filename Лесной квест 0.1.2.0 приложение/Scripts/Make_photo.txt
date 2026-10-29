@@ -1,0 +1,2 @@
+> #photos += [&photo_place]
+> &photo_made = True

@@ -1,0 +1,8 @@
+Script:= 'Image_Main_Menu' >
+Sp:= 2*#__indent_up >
+Fig:= 'rectangle' > (coordinates = [4*#__indent_left, 0, #__canvas_width - 4*#__indent_right, 6*#__link_shift], fill = '~ffff44', outline='~ffff44', width=1, y = #__indent_up, a=0.45)
+Link> ('Начать игру' -> 'Установка параметров персонажа')
+Sp:= #__link_shift//2 >
+Link> ('Предыстория')
+Sp:= #__link_shift//2 >
+Link> ('Правила игры')

@@ -1,0 +1,2 @@
+> &luck_number_cubs = 2
+Script:= 'Luck_internal' >

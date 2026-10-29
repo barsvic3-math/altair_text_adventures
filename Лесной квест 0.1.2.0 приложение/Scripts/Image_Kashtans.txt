@@ -1,0 +1,2 @@
+> &image = 'kashtans.png'
+Script:= 'Image' >

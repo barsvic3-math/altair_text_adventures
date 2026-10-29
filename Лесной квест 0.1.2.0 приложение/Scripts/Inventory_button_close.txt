@@ -1,0 +1,11 @@
+Loop> {
+    If: &inventory_show >> {
+        B:= 'Закрыть рюкзак' >>> {
+            Script:= 'Inventory_button_close' >>>>
+        }
+        { --imm
+            >>>> &main_buttons_show = True
+            >>>> &inventory_show = False
+        }
+    }
+}

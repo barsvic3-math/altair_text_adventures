@@ -1,0 +1,77 @@
+Script:= 'Image_Kashtans' >
+> &__text_size = 16
+> #life_full = 9
+> #power = 6
+> #luck_level = 3
+> &life_upgrade = 0
+> &power_upgrade = 0
+> &luck_upgrade = 0
+> &upgrades_count = 3
+Loop> {
+    >> &__text_shift = #__text_shift
+}
+! (size=13) ! Перед тем, как отправиться на выполнение миссии, Вам предлагают прокачать свои физические и магические способности. Обучение и тренировки займут всего несколько дней - время поджимает - поэтому у вас есть всего три доступных улучшения, которые вы можете потратить на развитие здоровья, силы или удачливости. Вы можете развиваться так, как посчитаете оптимальным для прохождения миссии. Например, можно обучиться равномерно, а можно полностью улучшить только один из параметров. Выбор за Вами!
+Loop> {
+    >> &__text_shift = #__button_shift
+}
+Sp:= 2*#__button_shift >
+> &signal_Upgrade_Life = [False]
+> &index_Upgrade_Life = 0
+Script:= 'Upgrade_Life' >
+Loop> {
+    If: &upgrades_count > 0 >> {
+        Sp:= -#__button_shift >>>
+    }
+}
+> &signal_Degrade_Life = [False]
+> &index_Degrade_Life = 0
+Script:= 'Degrade_Life' >
+Loop> {
+    If: &life_upgrade > 0 >> {
+        Sp:= -#__button_shift >>>
+    }
+}
+Sp:= #__button_shift >
+> &signal_Upgrade_Power = [False]
+> &index_Upgrade_Power = 0
+Script:= 'Upgrade_Power' >
+Loop> {
+    If: &upgrades_count > 0 >> {
+        Sp:= -#__button_shift >>>
+    }
+}
+> &signal_Degrade_Power = [False]
+> &index_Degrade_Power = 0
+Script:= 'Degrade_Power' >
+Loop> {
+    If: &power_upgrade > 0 >> {
+        Sp:= -#__button_shift >>>
+    }
+}
+Sp:= #__button_shift >
+> &signal_Upgrade_Luck = [False]
+> &index_Upgrade_Luck = 0
+Script:= 'Upgrade_Luck' >
+Loop> {
+    If: &upgrades_count > 0 >> {
+        Sp:= -#__button_shift >>>
+    }
+}
+> &signal_Degrade_Luck = [False]
+> &index_Degrade_Luck = 0
+Script:= 'Degrade_Luck' >
+Loop> {
+    If: &luck_upgrade > 0 >> {
+        Sp:= -#__button_shift >>>
+    }
+}
+Sp:= -2*#__button_shift >
+Жизнь: #life_full | &life_upgrade
+Сила:  #power | &power_upgrade
+Удача: кубика #luck_level | &luck_upgrade
+Loop> {
+    If: &upgrades_count == 0 >> {
+        >>> &first = ['Сохранить', '$_1', 1/2]
+        Script:= '1 Link' >>>
+    }
+}

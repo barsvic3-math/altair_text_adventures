@@ -1,0 +1,37 @@
+> #__bg = '~fffacd'
+> #__bg_image = 'Empty Passage.png'
+
+> #__indent_up = 50
+> #__indent_left = 100
+> #__indent_right = 100
+
+> #__text_shift = 24
+> #__link_shift = 48
+> #__button_shift = 36
+
+> #__text_font = "Times New Roman"
+> #__text_size = 13
+> #__text_style = 'normal'
+> #__text_colour = '~45322e'
+> #__text_length = 132
+
+> #__link_height = 1
+> #__link_bg = '~45322e'
+> #__link_fg = '~fffacd'
+> #__link_activebackground = '~fffacd'
+> #__link_activeforeground = '~45322e'
+> #__link_relief = 'raised'
+> #__link_text_font = "Times New Roman"
+> #__link_text_size = 15
+> #__link_text_style = 'normal'
+
+> #__button_height = 1
+> #__button_bg = '~45322e'
+> #__button_fg = '~fffacd'
+> #__button_activebackground = '~fffacd'
+> #__button_activeforeground = '~45322e'
+> #__button_relief = 'raised'
+> #__button_text_font = "Times New Roman"
+> #__button_text_size = 13
+> #__button_text_style = 'normal'
+
